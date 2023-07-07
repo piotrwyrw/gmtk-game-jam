@@ -23,7 +23,7 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = move * movementSpeed * Time.fixedDeltaTime;
+        rigidbody.velocity = new Vector2(move.x * movementSpeed * Time.fixedDeltaTime, rigidbody.velocity.y);
     }
 
     private void Awake()
