@@ -3,15 +3,24 @@ using Mono.Cecil;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterControllerNew : MonoBehaviour {
+public class CharacterControllerNew : MonoBehaviour
+{
+
     private InputActionManager _inputActionManager;
     private Vector2 _velocity;
     private Rigidbody2D _rigidbody;
     private PlayerGravityChangeInputCooldown _inputCooldown;
     [SerializeField] private Vector2 gravity;
 
+    private Camera camera;
 
-    private void Awake() {
+    private void Start()
+    {
+        camera = Camera.main;
+    }
+
+    private void Awake()
+    {
         this._inputActionManager = new InputActionManager();
         this._velocity = new Vector2(0, 0);
         this._rigidbody = GetComponent<Rigidbody2D>();
@@ -36,28 +45,38 @@ public class CharacterControllerNew : MonoBehaviour {
     //     }
     // }
 
-    private void OnChangeGravity(InputAction.CallbackContext callbackContext) {
+    private void OnChangeGravity(InputAction.CallbackContext callbackContext)
+    {
 
+        Debug.Log("OnChangeGravity() reached");
 
-        if (this.gravity.y < 0) {
-            
+        if (this.gravity.y < 0)
+        {
+            this.gravity = new Vector2(0, 9.81f);
         }
         else
             this.gravity = new Vector2(0, -9.81f);
-        
+
     }
 
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         this._inputActionManager.Enable();
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         this._inputActionManager.Disable();
     }
 
+    private void LateUpdate()
+    {
+        camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
+    }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         Physics2D.gravity = gravity;
         _rigidbody.velocity = new Vector2(2, 0);
     }
