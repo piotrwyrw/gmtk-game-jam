@@ -1,15 +1,12 @@
 ﻿
-using Unity.Mathematics;
-
 public class Util {
     public static float Random(float min, float max) {
-        Random rand = new Random();
-        return rand.NextFloat(min, max);
+        return UnityEngine.Random.Range(min, max);
     }
     
     public static bool Random() {
-        Random rand = new Random();
-        return rand.NextBool();
+        float val = UnityEngine.Random.Range(0.0f, 1.0f);
+        return val > 0.7f;
     }
     
 }

@@ -36,6 +36,10 @@ public class DynamicObject : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (startXPos == endXPos && startYPos == endYPos) {
+            return;
+        }
+
         Vector3 position = m_Object.transform.position;
 
         if ((position.x <= m_initialPosition.x + endXPos) && !endXReached)
