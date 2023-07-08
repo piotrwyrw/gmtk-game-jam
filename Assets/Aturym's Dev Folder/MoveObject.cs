@@ -44,7 +44,7 @@ public class MoveObject : MonoBehaviour
         else
         {
             endXReached = true;
-            Debug.Log("End X Reached");
+            //Debug.Log("End X Reached");
         }
         if((position.y <= m_initialPosition.y + endYPos) && !endYReached)
         {
@@ -53,7 +53,7 @@ public class MoveObject : MonoBehaviour
         else
         {
             endYReached = true;
-            Debug.Log("End Y Reached");
+            //Debug.Log("End Y Reached");
         }
 
         

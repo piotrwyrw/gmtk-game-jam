@@ -10,9 +10,11 @@ public class CharacterController : MonoBehaviour
     Vector2 move = Vector2.zero;
     Rigidbody2D rigidbody;
     [SerializeField] private float movementSpeed = 5f;
+    Camera cam;
 
     private void Start()
     {
+        cam = Camera.main;
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -23,7 +25,12 @@ public class CharacterController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = new Vector2(move.x * movementSpeed * Time.fixedDeltaTime, rigidbody.velocity.y);
+        rigidbody.velocity = new Vector2(movementSpeed * Time.fixedDeltaTime, rigidbody.velocity.y);
+    }
+
+    private void LateUpdate()
+    {
+        cam.transform.position = new Vector3(transform.position.x, transform.position.y, cam.transform.position.z);
     }
 
     private void Awake()
