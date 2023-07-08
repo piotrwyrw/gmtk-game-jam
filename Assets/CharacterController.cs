@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
     private InputActionManager controls;
     Vector2 move = Vector2.zero;
     Rigidbody2D rigidbody;
-    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float movementSpeed = 30f;
 
     private void Start()
     {
