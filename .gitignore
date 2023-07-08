@@ -1,3 +1,6 @@
+# Ignore the HTM/L files. Why do we need those in the first place?
+*.htm*
+
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
