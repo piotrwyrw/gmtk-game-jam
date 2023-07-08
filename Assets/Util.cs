@@ -1,13 +1,15 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿
+using Unity.Mathematics;
 
-namespace Utility {
-    public static class Util {
-        public static T AddIfNotPresent<T>(this Component c) where T : Component {
-            T component = c.GetComponent<T>();
-            if (component == null)
-                return c.AddComponent<T>();
-            return component;
-        }
+public class Util {
+    public static float Random(float min, float max) {
+        Random rand = new Random();
+        return rand.NextFloat(min, max);
     }
+    
+    public static bool Random() {
+        Random rand = new Random();
+        return rand.NextBool();
+    }
+    
 }

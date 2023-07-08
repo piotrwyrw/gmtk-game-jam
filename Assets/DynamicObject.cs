@@ -1,24 +1,22 @@
-﻿using System;
-using Unity.VisualScripting;
-using UnityEngine;
-using Utility;
+﻿using UnityEngine;
+using Extensions;
 
 public class DynamicObject : MonoBehaviour {
     private GameObject m_Object;
-    private float startXPos = -2;
-    private float startYPos = -2;
-    private float endXPos = 2;
-    private float endYPos = 2;
-    private float speedX = 0.1f;
-    private float speedY = 0.1f;
+    public float startXPos { get; set; } = -2;
+    public float startYPos { get; set; } = -2;
+    public float endXPos { get; set; } = 2;
+    public float endYPos { get; set; } = 2;
+    public float speedX { get; set; } = 0.1f;
+    public float speedY { get; set; } = 0.1f;
 
-    private Vector3 m_initialPosition;
+    public Vector3 m_initialPosition { get; set; }
     private bool endXReached;
     private bool endYReached;
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
 
-    // Start is called before the first frame update
+// Start is called before the first frame update
     void Start() {
         m_Object = gameObject;
         _rigidbody2D = this.AddIfNotPresent<Rigidbody2D>();
