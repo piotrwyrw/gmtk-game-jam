@@ -35,7 +35,7 @@ public class PlatformGenerator {
         GameObject obj = GameObject.Find("Player");
         LoadPrefab();
         _lastX = obj.transform.position.x + prefab.transform.localScale.y - 0.5f;
-        _lastY = obj.transform.position.y + prefab.transform.localScale.y - 0.5f;
+        _lastY = obj.transform.position.y - prefab.transform.localScale.y - _maxYMovement;
         _platforms = new List<GameObject>();
     }
 
