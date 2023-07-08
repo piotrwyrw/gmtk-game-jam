@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGravityChangeInputCooldown : MonoBehaviour {
-    [SerializeField]
-    public float Cooldown { get; set; }
+    
+    [SerializeField] private float Cooldown { get; set; }
     
 
     private void Awake() {
