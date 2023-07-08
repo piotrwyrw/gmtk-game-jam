@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -33,5 +34,10 @@ public class MainMenuScript : MonoBehaviour
     public void setIndexLevel2() { 
         index = 2;
         textMeshProUGUI.text = "Level 2";
+    }
+
+    public void setInfinityMode() {
+        index = 4;
+        textMeshProUGUI.text = "Infinity Mode";
     }
 }
