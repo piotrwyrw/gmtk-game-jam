@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
+
+    public GameObject nextLevel;
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -15,4 +17,14 @@ public class GameOverScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-}
+
+    public void NextLevel() {
+
+        if (SceneManager.GetActiveScene().buildIndex == 3) {
+            SceneManager.LoadScene(1);
+        }
+        else{ 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+    }
