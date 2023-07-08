@@ -12,6 +12,8 @@ public class CharacterControllerNew : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private PlayerGravityChangeInputCooldown _inputCooldown;
     [SerializeField] private Vector2 gravity;
+    public GameObject gameOverMenu;
+    public GameObject gameCompleteMenu;
 
     private Camera camera;
 
@@ -80,5 +82,18 @@ public class CharacterControllerNew : MonoBehaviour
     {
         Physics2D.gravity = gravity;
         _rigidbody.velocity = new Vector2(2, 0);
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            gameOverMenu.SetActive(true);
+        }
+
+        if (collision.gameObject.layer == 7)
+        {
+            gameCompleteMenu.SetActive(true);
+        }
     }
 }
