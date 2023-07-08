@@ -12,11 +12,11 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Level Complete
   - 
   - Solid
   - Draggable
-  - 
+  - Player
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 349683129
+    locked: 0
+  - name: Middle
+    uniqueID: 186217713
     locked: 0
   - name: Foreground
     uniqueID: 4138743519
