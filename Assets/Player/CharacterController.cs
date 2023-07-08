@@ -20,7 +20,7 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        move = controls.Player.Move.ReadValue<Vector2>();
+        //move = controls.Player.Move.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()

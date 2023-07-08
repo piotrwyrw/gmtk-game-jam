@@ -20,10 +20,14 @@ public class CharacterControllerNew : MonoBehaviour
         camera = Camera.main;
     }
 
-
     private void Awake()
     {
         this._inputActionManager = new InputActionManager();
+        this._velocity = new Vector2(0, 0);
+        this._rigidbody = GetComponent<Rigidbody2D>();
+        this._inputCooldown = GetComponent<PlayerGravityChangeInputCooldown>();
+
+        this._inputActionManager.Player.ChangeGravity.performed += OnChangeGravity;
     }
 
     // private void OnChangeGravity(InputAction.CallbackContext callbackContext) {
@@ -70,5 +74,11 @@ public class CharacterControllerNew : MonoBehaviour
     private void LateUpdate()
     {
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
+    }
+
+    private void FixedUpdate()
+    {
+        Physics2D.gravity = gravity;
+        _rigidbody.velocity = new Vector2(2, 0);
     }
 }
