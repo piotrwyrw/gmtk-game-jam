@@ -9,14 +9,15 @@ public class DynamicObject : MonoBehaviour {
     public float endYPos { get; set; } = 2;
     public float speedX { get; set; } = 0.1f;
     public float speedY { get; set; } = 0.1f;
+    public bool frozen { get; set; } = false;
 
     public Vector3 m_initialPosition { get; set; }
     private bool endXReached;
     private bool endYReached;
     private Rigidbody2D _rigidbody2D;
-    private BoxCollider2D _boxCollider2D;
-
-// Start is called before the first frame update
+    private BoxCollider2D _boxCollider2D; 
+    
+    // Start is called before the first frame update
     void Start() {
         m_Object = gameObject;
         _rigidbody2D = this.AddIfNotPresent<Rigidbody2D>();
@@ -36,7 +37,7 @@ public class DynamicObject : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (startXPos == endXPos && startYPos == endYPos) {
+        if ((startXPos == endXPos && startYPos == endYPos) || frozen) {
             return;
         }
 
