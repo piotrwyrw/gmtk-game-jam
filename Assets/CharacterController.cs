@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UIElements;
 
 public class CharacterController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CharacterController : MonoBehaviour
     Vector2 move = Vector2.zero;
     Rigidbody2D rigidbody;
     [SerializeField] private float movementSpeed = 5f;
+    public GameObject gameOverMenu;
+    public GameObject gameCompleteMenu;
 
     private void Start()
     {
@@ -39,5 +42,16 @@ public class CharacterController : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6) { 
+            gameOverMenu.SetActive(true);
+        }
+
+        if (collision.gameObject.layer == 7) { 
+            gameCompleteMenu.SetActive(true);
+        }
     }
 }
