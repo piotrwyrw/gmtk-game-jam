@@ -38,20 +38,20 @@ public class MainMenuScript : MonoBehaviour
 
     public void serIndexLevel6()
     {
-        SceneManager.LoadScene(6);
+        //SceneManager.LoadScene(6);
     }
 
     public void serIndexLevel7()
     {
-        SceneManager.LoadScene(7);
+        //SceneManager.LoadScene(7);
     }
 
     public void serIndexLevel8()
     {
-        SceneManager.LoadScene(8);
+        //SceneManager.LoadScene(8);
     }
 
     public void setInfinityMode() {
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(6);
     }
 }
