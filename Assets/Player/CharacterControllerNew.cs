@@ -29,7 +29,17 @@ public class CharacterControllerNew : MonoBehaviour {
     [SerializeField] public GameObject gameOverMenu;
     [SerializeField] public GameObject gameCompleteMenu;
     [SerializeField] public GameObject gameEscapeMenu;
-    
+
+    public float squareSize = 0.2f;
+    public int squaresInRow = 5;
+
+    float squaresPivotDistance;
+    Vector3 squarePivot;
+
+    public float explosionForce = 50f;
+    public float explosionRadius = 4f;
+    public float explosionUpward = 0.4f;
+
 
     private Camera camera;
 
@@ -39,6 +49,9 @@ public class CharacterControllerNew : MonoBehaviour {
     
     private void Start() {
         camera = Camera.main;
+
+        squaresPivotDistance = squareSize * squaresInRow / 2;
+        squarePivot = new Vector3(squaresPivotDistance, squaresPivotDistance, squaresPivotDistance);
     }
 
 
@@ -132,7 +145,7 @@ public class CharacterControllerNew : MonoBehaviour {
     {
         if (collision.gameObject.layer == 6)
         {
-            this._velocity = new Vector2(0, 0);
+         
 
             if (!gameCompleteMenu.activeSelf) {
                 gameOverMenu.SetActive(true);
@@ -161,8 +174,49 @@ public class CharacterControllerNew : MonoBehaviour {
         if (!gameCompleteMenu.activeSelf)
         {
             gameOverMenu.SetActive(true);
+
+            this._velocity = new Vector2(0, 0);
+            explode();
         }
         gameEscapeMenu.SetActive(false);
+    }
+
+    public void explode()
+    {
+        gameObject.SetActive(false);
+
+        for (int x = 0; x < squaresInRow; x++)
+        {
+            for (int y = 0; y < squaresInRow; y++)
+            {
+                createPiece(x, y);
+            }
+        }
+
+        Vector3 explosionPos = transform.position;
+
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
+
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, explosionUpward);
+            }
+        }
+    }
+
+    private void createPiece(int x, int y)
+    {
+        GameObject piece;
+        piece = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+        piece.transform.position = transform.position + new Vector3(squareSize * x, squareSize * y, squareSize) - squarePivot;
+        piece.transform.localScale = new Vector3(squareSize, squareSize, squareSize);
+
+        piece.AddComponent<Rigidbody>();
+        piece.GetComponent<Rigidbody>().mass = squareSize;
     }
 
 }
