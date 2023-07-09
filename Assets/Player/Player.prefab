@@ -168,8 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d0bde8c3225784382973cc5ec77563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: {x: 0, y: 0}
---- !u!114 &4217885112216198374
+  gravity: {x: 0, y: -9.81}
+  gravityChange: 2
+  gravityDerivativeModificationDelta: 1
+  shouldWaitForChangeGravityToBeNone: 1
+  gravitationChangeDelta: 1
+--- !u!114 &7818454467097059144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
