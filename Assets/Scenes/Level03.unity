@@ -337,6 +337,26 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 323231498}
+    - target: {fileID: 8779059624237923359, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
+      propertyPath: colorGravityUp.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779059624237923359, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
+      propertyPath: colorGravityUp.b
+      value: 0.7490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779059624237923359, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
+      propertyPath: colorGravityUp.g
+      value: 0.4862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779059624237923359, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
+      propertyPath: colorGravityDown.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779059624237923359, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
+      propertyPath: colorGravityDown.r
+      value: 0.7490196
+      objectReference: {fileID: 0}
     - target: {fileID: 8779059624237923360, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
       propertyPath: m_Color.b
       value: 0.58896405

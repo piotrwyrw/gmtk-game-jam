@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1001622338014694901}
   - component: {fileID: 1001622338014694902}
   - component: {fileID: 1001622338014694889}
-  - component: {fileID: -21885252920819791}
   - component: {fileID: 7818454467097059144}
+  - component: {fileID: 5312911944688760983}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -156223777
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4931202, g: 0.18431371, b: 1, a: 1}
@@ -156,6 +156,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7818454467097059144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001622338014694903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ee86e2a62ff2c4bb6c442fd8ff458b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5312911944688760983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,15 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: {x: 0, y: -9.81}
---- !u!114 &7818454467097059144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001622338014694903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ee86e2a62ff2c4bb6c442fd8ff458b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  gravityChange: 2
+  gravityDerivativeModificationDelta: 1
+  shouldWaitForChangeGravityToBeNone: 1
+  gravitationChangeDelta: 1
