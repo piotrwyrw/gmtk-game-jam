@@ -130,6 +130,8 @@ public class CharacterControllerNew : MonoBehaviour {
     {
         if (collision.gameObject.layer == 6)
         {
+            this._velocity = new Vector2(0, 0);
+
             if (!gameCompleteMenu.activeSelf) {
                 gameOverMenu.SetActive(true);
             }
