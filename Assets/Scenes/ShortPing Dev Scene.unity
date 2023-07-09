@@ -403,6 +403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: {x: 0, y: 0}
+  gravityChange: 2
+  gravityDerivativeModificationDelta: 2
+  shouldWaitForChangeGravityToBeNone: 1
+  gravitationChangeDelta: 1
 --- !u!114 &400960986
 MonoBehaviour:
   m_ObjectHideFlags: 0

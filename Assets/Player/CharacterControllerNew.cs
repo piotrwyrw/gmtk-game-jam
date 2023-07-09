@@ -1,86 +1,105 @@
 using System;
+using System.Collections;
+using System.Linq;
 using Mono.Cecil;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public class CharacterControllerNew : MonoBehaviour
-{
-
+public class CharacterControllerNew : MonoBehaviour {
     private InputActionManager _inputActionManager;
     private Vector2 _velocity;
     private Rigidbody2D _rigidbody;
     private PlayerGravityChangeInputCooldown _inputCooldown;
-    private CapsuleCollider2D _capsuleCollider;
-    [SerializeField] private Vector2 gravity;
-
+    [SerializeField] private Vector2 gravity = new Vector2(0, -9.81f);
+    [SerializeField] private GravityChange gravityChange = GravityChange.None;
+    [SerializeField] private float gravityDerivativeModificationDelta = 1;
+    [SerializeField] private bool shouldWaitForChangeGravityToBeNone = true;
+    [SerializeField] private float gravitationChangeDelta = 1;
+    
     private Camera camera;
 
-    private void Start()
-    {
+    private void Start() {
         camera = Camera.main;
     }
 
-    private void Awake()
-    {
+
+    private void Awake() {
         this._inputActionManager = new InputActionManager();
         this._velocity = new Vector2(0, 0);
         this._rigidbody = GetComponent<Rigidbody2D>();
         this._inputCooldown = GetComponent<PlayerGravityChangeInputCooldown>();
-        this._capsuleCollider = GetComponent<CapsuleCollider2D>();
+      
 
         this._inputActionManager.Player.ChangeGravity.performed += OnChangeGravity;
     }
 
-    // private void OnChangeGravity(InputAction.CallbackContext callbackContext) {
-    //     float targetGravityScale = _rigidbody.gravityScale * -1;
-    //     const float tolerance = 0.01f;
-    //     
-    //     if(_inputCooldown.IsCooledDown()) return;
-    //     
-    //     _inputCooldown.Cooldown = 0.5f;
-    //     while (Math.Abs(_rigidbody.gravityScale - targetGravityScale) > tolerance) {
-    //         if (targetGravityScale < 1) {
-    //             _rigidbody.gravityScale--;
-    //             continue;
-    //         }
-    //         _rigidbody.gravityScale++;
-    //     }
-    // }
 
-    private void OnChangeGravity(InputAction.CallbackContext callbackContext)
-    {
+    private void OnChangeGravity(InputAction.CallbackContext callbackContext) {
+        if (gravityChange != GravityChange.None && this.shouldWaitForChangeGravityToBeNone)
+            return;
 
-        Debug.Log("OnChangeGravity() reached");
-
-        if (this.gravity.y < 0)
-        {
-            this.gravity = new Vector2(0, 9.81f);
+        if (this.gravity.y < 0) {
+            this.gravityChange = GravityChange.Up;
         }
-        else
-            this.gravity = new Vector2(0, -9.81f);
-
+        else {
+            this.gravityChange = GravityChange.Down;
+        }
     }
 
 
-    private void OnEnable()
-    {
+    private void OnEnable() {
         this._inputActionManager.Enable();
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() {
         this._inputActionManager.Disable();
     }
 
-    private void LateUpdate()
-    {
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
+    private void LateUpdate() {
+        Vector3 position = camera.transform.position;
+
+        var position1 = transform.position;
+        position = new Vector3(position1.x, position1.y, position.z);
+
+        camera.transform.position = position;
     }
 
-    private void FixedUpdate()
-    {
+
+    private void FixedUpdate() {
         Physics2D.gravity = gravity;
         _rigidbody.velocity = new Vector2(2, 0);
+
+        if (gravityChange == GravityChange.Up) {
+            if (gravity.y > 0)
+                gravity.y += gravitationChangeDelta;
+            gravity.y += gravityDerivativeModificationDelta;
+
+            if (gravity.y >= 9.81) {
+                gravity.y = 9.81f;
+                gravityChange = GravityChange.None;
+            }
+        }
+
+        if (gravityChange == GravityChange.Down) {
+            if (gravity.y > 0)
+                gravity.y -= gravitationChangeDelta;
+            gravity.y -= gravityDerivativeModificationDelta;
+
+
+            if (gravity.y <= -9.81) {
+                gravity.y = -9.81f;
+                gravityChange = GravityChange.None;
+            }
+        }
+    }
+
+
+    public enum GravityChange {
+        Up,
+        Down,
+        None
     }
 
     public void KillPlayer()
