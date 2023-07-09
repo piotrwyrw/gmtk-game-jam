@@ -10,6 +10,7 @@ public class CharacterControllerNew : MonoBehaviour
     private Vector2 _velocity;
     private Rigidbody2D _rigidbody;
     private PlayerGravityChangeInputCooldown _inputCooldown;
+    private CapsuleCollider2D _capsuleCollider;
     [SerializeField] private Vector2 gravity;
 
     private Camera camera;
@@ -25,6 +26,7 @@ public class CharacterControllerNew : MonoBehaviour
         this._velocity = new Vector2(0, 0);
         this._rigidbody = GetComponent<Rigidbody2D>();
         this._inputCooldown = GetComponent<PlayerGravityChangeInputCooldown>();
+        this._capsuleCollider = GetComponent<CapsuleCollider2D>();
 
         this._inputActionManager.Player.ChangeGravity.performed += OnChangeGravity;
     }
@@ -79,5 +81,15 @@ public class CharacterControllerNew : MonoBehaviour
     {
         Physics2D.gravity = gravity;
         _rigidbody.velocity = new Vector2(2, 0);
+    }
+
+    public void KillPlayer()
+    {
+
+    }
+
+    private void Update()
+    {
+        
     }
 }
