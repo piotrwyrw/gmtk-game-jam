@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1001622338014694902}
   - component: {fileID: 1001622338014694889}
   - component: {fileID: -21885252920819791}
-  - component: {fileID: 4217885112216198374}
+  - component: {fileID: 7818454467097059144}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.1830188, b: 0.1830188, a: 1}
+  m_Color: {r: 0.4931202, g: 0.18431371, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -169,10 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: {x: 0, y: -9.81}
-  gravityChange: 2
-  gravityDerivativeModificationDelta: 1
-  shouldWaitForChangeGravityToBeNone: 1
-  gravitationChangeDelta: 1
 --- !u!114 &7818454467097059144
 MonoBehaviour:
   m_ObjectHideFlags: 0

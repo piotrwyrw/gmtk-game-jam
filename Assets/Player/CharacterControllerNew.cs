@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class CharacterControllerNew : MonoBehaviour
 {
+    
 
     private InputActionManager _inputActionManager;
     private Vector2 _velocity;
@@ -15,6 +16,8 @@ public class CharacterControllerNew : MonoBehaviour
     [SerializeField] private Vector2 gravity;
 
     private Camera camera;
+
+    public event EventHandler onSpacePressed;
 
     private void Start()
     {
@@ -50,7 +53,7 @@ public class CharacterControllerNew : MonoBehaviour
 
     private void OnChangeGravity(InputAction.CallbackContext callbackContext)
     {
-
+        
         Debug.Log("OnChangeGravity() reached");
 
         if (this.gravity.y < 0)
@@ -60,6 +63,7 @@ public class CharacterControllerNew : MonoBehaviour
         else
             this.gravity = new Vector2(0, -9.81f);
 
+        onSpacePressed?.Invoke(this, EventArgs.Empty);
     }
 
 
@@ -91,6 +95,9 @@ public class CharacterControllerNew : MonoBehaviour
 
     private void Update()
     {
-        
+        if (this._inputActionManager.Player.ChangeGravity.IsPressed())
+        {
+            
+        }
     }
 }
