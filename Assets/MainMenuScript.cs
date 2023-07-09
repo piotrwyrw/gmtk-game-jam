@@ -16,42 +16,42 @@ public class MainMenuScript : MonoBehaviour
     }
 
     public void setIndexLevel1() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Level01");
     }
 
     public void setIndexLevel3() {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Level03");
     }
 
     public void setIndexLevel2() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Level02");
     }
 
     public void serIndexLevel4() {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Level04");
     }
 
     public void serIndexLevel5()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("Level05");
     }
 
     public void serIndexLevel6()
     {
-        //SceneManager.LoadScene(6);
+        SceneManager.LoadScene("Level06");
     }
 
     public void serIndexLevel7()
     {
-        //SceneManager.LoadScene(7);
+        SceneManager.LoadScene("Level07");
     }
 
     public void serIndexLevel8()
     {
-        //SceneManager.LoadScene(8);
+        SceneManager.LoadScene("Level08");
     }
 
     public void setInfinityMode() {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene("Infinity");
     }
 }
