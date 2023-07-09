@@ -6,7 +6,7 @@ public class Util {
     
     public static bool Random() {
         float val = UnityEngine.Random.Range(0.0f, 1.0f);
-        return val > 0.7f;
+        return val >= 0.7f;
     }
     
 }
