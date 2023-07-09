@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7245046329044867156}
   - component: {fileID: 7245046329044867157}
   - component: {fileID: 7245046329044867162}
+  - component: {fileID: 3615556283030157500}
   m_Layer: 12
   m_Name: Deathblock
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3615556283030157500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245046329044867163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76db3d978cbb684419b5ef5c3c361455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1001622338014694903, guid: 8b2384b23a012d647ad3230b965224d9, type: 3}
