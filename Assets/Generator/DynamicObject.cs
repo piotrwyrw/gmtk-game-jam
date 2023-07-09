@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Extensions;
 
 public class DynamicObject : MonoBehaviour {
@@ -64,4 +65,5 @@ public class DynamicObject : MonoBehaviour {
         else
             endYReached = false;
     }
+    
 }

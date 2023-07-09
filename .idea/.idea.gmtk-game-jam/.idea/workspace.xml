@@ -9,8 +9,9 @@
       <change beforePath="$PROJECT_DIR$/Assets/Generator/DynamicObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Generator/DynamicObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Generator/PlatformGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Generator/PlatformGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GeneratorObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GeneratorObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,10 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterControllerNew : MonoBehaviour
-{
-    
-
+public class CharacterControllerNew : MonoBehaviour {
     private InputActionManager _inputActionManager;
     private Vector2 _velocity;
     private Rigidbody2D _rigidbody;
@@ -19,13 +16,11 @@ public class CharacterControllerNew : MonoBehaviour
 
     public event EventHandler onSpacePressed;
 
-    private void Start()
-    {
+    private void Start() {
         camera = Camera.main;
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         this._inputActionManager = new InputActionManager();
         this._velocity = new Vector2(0, 0);
         this._rigidbody = GetComponent<Rigidbody2D>();
@@ -51,13 +46,10 @@ public class CharacterControllerNew : MonoBehaviour
     //     }
     // }
 
-    private void OnChangeGravity(InputAction.CallbackContext callbackContext)
-    {
-        
-        Debug.Log("OnChangeGravity() reached");
+    private void OnChangeGravity(InputAction.CallbackContext callbackContext) {
+        // Debug.Log("OnChangeGravity() reached");
 
-        if (this.gravity.y < 0)
-        {
+        if (this.gravity.y < 0) {
             this.gravity = new Vector2(0, 9.81f);
         }
         else
@@ -67,37 +59,27 @@ public class CharacterControllerNew : MonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
+    private void OnEnable() {
         this._inputActionManager.Enable();
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() {
         this._inputActionManager.Disable();
     }
 
-    private void LateUpdate()
-    {
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
+    private void LateUpdate() {
+        camera.transform.position =
+            new Vector3(transform.position.x, transform.position.y, camera.transform.position.z);
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         Physics2D.gravity = gravity;
         _rigidbody.velocity = new Vector2(2, 0);
     }
 
-    public void KillPlayer()
-    {
+    public void KillPlayer() { }
 
-    }
-
-    private void Update()
-    {
-        if (this._inputActionManager.Player.ChangeGravity.IsPressed())
-        {
-            
-        }
+    private void Update() {
+        if (this._inputActionManager.Player.ChangeGravity.IsPressed()) { }
     }
 }
