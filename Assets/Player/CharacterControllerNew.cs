@@ -14,6 +14,7 @@ public class CharacterControllerNew : MonoBehaviour
     [SerializeField] private Vector2 gravity;
     public GameObject gameOverMenu;
     public GameObject gameCompleteMenu;
+    public GameObject gameEscapeMenu;
 
     private Camera camera;
 
@@ -62,6 +63,16 @@ public class CharacterControllerNew : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!gameCompleteMenu.activeSelf && !gameOverMenu.activeSelf) {
+                gameEscapeMenu.SetActive(true);
+            }
+        }
+    }
+
 
     private void OnEnable()
     {
@@ -88,12 +99,18 @@ public class CharacterControllerNew : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            gameOverMenu.SetActive(true);
+            if (!gameCompleteMenu.activeSelf) {
+                gameOverMenu.SetActive(true);
+            }
+            gameEscapeMenu.SetActive(false);
         }
 
         if (collision.gameObject.layer == 7)
         {
-            gameCompleteMenu.SetActive(true);
+            if (!gameOverMenu.activeSelf) {
+                gameCompleteMenu.SetActive(true);
+            } 
+            gameEscapeMenu.SetActive(false);
         }
     }
 }
