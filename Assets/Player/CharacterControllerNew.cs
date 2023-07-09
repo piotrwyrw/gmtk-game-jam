@@ -49,11 +49,6 @@ public class CharacterControllerNew : MonoBehaviour {
 
         this._inputActionManager.Player.ChangeGravity.performed += OnChangeGravity;
 
-        Button.Registry["765a33d8-2162-48de-a29d-92e0fe5f715a"].OnButtonClicked += OnButtonClicked;
-    }
-
-    private void OnButtonClicked(string guid) {
-        Debug.Log("This button was clicked");
     }
 
 
