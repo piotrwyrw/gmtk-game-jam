@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Extensions.Buttons;
 using Mono.Cecil;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class CharacterControllerNew : MonoBehaviour {
     private Vector2 _velocity;
     private Rigidbody2D _rigidbody;
     private PlayerGravityChangeInputCooldown _inputCooldown;
+
     [SerializeField] private Vector2 gravity = new Vector2(0, -9.81f);
     [SerializeField] private GravityChange gravityChange = GravityChange.None;
     [SerializeField] private float gravityDerivativeModificationDelta = 1;
@@ -22,8 +24,8 @@ public class CharacterControllerNew : MonoBehaviour {
     [SerializeField] private bool cameraFollowPlayer = true;
     [SerializeField] private bool cameraFollowPlayerX = true;
     [SerializeField] private bool cameraFollowPlayerY = true;
-    
-    
+
+
     private Camera camera;
 
     private void Start() {
@@ -36,9 +38,15 @@ public class CharacterControllerNew : MonoBehaviour {
         this._velocity = new Vector2(0, 0);
         this._rigidbody = GetComponent<Rigidbody2D>();
         this._inputCooldown = GetComponent<PlayerGravityChangeInputCooldown>();
-      
+
 
         this._inputActionManager.Player.ChangeGravity.performed += OnChangeGravity;
+
+        Button.Registry["765a33d8-2162-48de-a29d-92e0fe5f715a"].OnButtonClicked += OnButtonClicked;
+    }
+
+    private void OnButtonClicked(string guid) {
+        Debug.Log("This button was clicked");
     }
 
 
@@ -67,10 +75,11 @@ public class CharacterControllerNew : MonoBehaviour {
         Vector3 position = camera.transform.position;
 
         var position1 = transform.position;
-        
-        position = new Vector3(cameraFollowPlayerX ? position1.x : fixedCameraPositionX, cameraFollowPlayerY ? position1.y : fixedCameraPositionY, position.z);
 
-        if(cameraFollowPlayer)
+        position = new Vector3(cameraFollowPlayerX ? position1.x : fixedCameraPositionX,
+            cameraFollowPlayerY ? position1.y : fixedCameraPositionY, position.z);
+
+        if (cameraFollowPlayer)
             camera.transform.position = position;
     }
 
@@ -110,13 +119,9 @@ public class CharacterControllerNew : MonoBehaviour {
         None
     }
 
-    public void KillPlayer()
-    {  
-
+    public void KillPlayer() {
     }
 
-    private void Update()
-    {
-        
+    private void Update() {
     }
 }
