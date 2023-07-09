@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GeneratorObject : MonoBehaviour {
 
@@ -7,9 +6,6 @@ public class GeneratorObject : MonoBehaviour {
     
     private void Start() {
         _gen = new PlatformGenerator();
-        
-        // Generate some platforms lol
-        for (int i = 0; i < 10; i ++)
-            _gen.GenerateNext();
+        _gen.GenerateNext();
     }
 }
