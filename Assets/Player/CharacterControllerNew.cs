@@ -28,6 +28,10 @@ public class CharacterControllerNew : MonoBehaviour {
 
     private Camera camera;
 
+    
+    public event EventHandler onSpacePressed;
+    
+    
     private void Start() {
         camera = Camera.main;
     }
@@ -60,6 +64,8 @@ public class CharacterControllerNew : MonoBehaviour {
         else {
             this.gravityChange = GravityChange.Down;
         }
+        
+        onSpacePressed?.Invoke(this, EventArgs.Empty);
     }
 
 
