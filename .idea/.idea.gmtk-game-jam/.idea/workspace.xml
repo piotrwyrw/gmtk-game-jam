@@ -7,13 +7,19 @@
     <list default="true" id="040cc4e5-4930-4233-9378-b4c2bd22a860" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.gmtk-game-jam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gmtk-game-jam/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Generator/PlatformGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Generator/PlatformGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GeneratorObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GeneratorObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Infinity.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Infinity.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravityIndicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravityIndicator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Util.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectId" id="2SIjjQcUTNQXEFVen0Wt7XSgj1d" />

@@ -1,20 +1,15 @@
 using System;
-using System.Collections;
-using System.Linq;
-using Extensions.Buttons;
-using Mono.Cecil;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class CharacterControllerNew : MonoBehaviour {
     private InputActionManager _inputActionManager;
-    private Vector2 _velocity;
+    [FormerlySerializedAs("_velocity")] public Vector2 velocity;
     private Rigidbody2D _rigidbody;
     private PlayerGravityChangeInputCooldown _inputCooldown;
 
-    [SerializeField] private Vector2 gravity = new Vector2(0, -9.81f);
+    [SerializeField] public Vector2 gravity = new Vector2(0, -9.81f);
     [SerializeField] private GravityChange gravityChange = GravityChange.None;
     [SerializeField] private float gravityDerivativeModificationDelta = 1;
     [SerializeField] private bool shouldWaitForChangeGravityToBeNone = true;
@@ -31,10 +26,10 @@ public class CharacterControllerNew : MonoBehaviour {
 
     private Camera camera;
 
-    
+
     public event EventHandler onSpacePressed;
-    
-    
+
+
     private void Start() {
         camera = Camera.main;
     }
@@ -42,13 +37,12 @@ public class CharacterControllerNew : MonoBehaviour {
 
     private void Awake() {
         this._inputActionManager = new InputActionManager();
-        this._velocity = new Vector2(0, 0);
+        this.velocity = new Vector2(0, 0);
         this._rigidbody = GetComponent<Rigidbody2D>();
         this._inputCooldown = GetComponent<PlayerGravityChangeInputCooldown>();
 
 
         this._inputActionManager.Player.ChangeGravity.performed += OnChangeGravity;
-
     }
 
 
@@ -62,14 +56,12 @@ public class CharacterControllerNew : MonoBehaviour {
         else {
             this.gravityChange = GravityChange.Down;
         }
-        
+
         onSpacePressed?.Invoke(this, EventArgs.Empty);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!gameCompleteMenu.activeSelf && !gameOverMenu.activeSelf) {
                 gameEscapeMenu.SetActive(true);
             }
@@ -125,26 +117,24 @@ public class CharacterControllerNew : MonoBehaviour {
             }
         }
     }
-    
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
+
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.layer == 6) {
             if (!gameCompleteMenu.activeSelf) {
                 gameOverMenu.SetActive(true);
             }
+
             gameEscapeMenu.SetActive(false);
         }
 
-        if (collision.gameObject.layer == 7)
-        {
+        if (collision.gameObject.layer == 7) {
             if (!gameOverMenu.activeSelf) {
                 gameCompleteMenu.SetActive(true);
-            } 
+            }
+
             gameEscapeMenu.SetActive(false);
         }
     }
-
 
 
     public enum GravityChange {
@@ -153,8 +143,5 @@ public class CharacterControllerNew : MonoBehaviour {
         None
     }
 
-    public void KillPlayer() {
-        
-    }
-
+    public void KillPlayer() { }
 }
