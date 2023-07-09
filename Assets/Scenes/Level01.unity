@@ -1766,6 +1766,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1776505741}
     m_Modifications:
+    - target: {fileID: 1760065125222382491, guid: c87c97aaf129b204cb4619d57d094f56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
     - target: {fileID: 6911561685717373033, guid: c87c97aaf129b204cb4619d57d094f56, type: 3}
       propertyPath: m_Name
       value: Solid Block
@@ -1784,11 +1788,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8791452179340429413, guid: c87c97aaf129b204cb4619d57d094f56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.915998
+      value: -29.62
       objectReference: {fileID: 0}
     - target: {fileID: 8791452179340429413, guid: c87c97aaf129b204cb4619d57d094f56, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.455
+      value: -0.472
       objectReference: {fileID: 0}
     - target: {fileID: 8791452179340429413, guid: c87c97aaf129b204cb4619d57d094f56, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2044,6 +2048,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1760065125222382491, guid: c87c97aaf129b204cb4619d57d094f56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
     - target: {fileID: 6911561685717373033, guid: c87c97aaf129b204cb4619d57d094f56, type: 3}
       propertyPath: m_Name
       value: Solid Block (1)
