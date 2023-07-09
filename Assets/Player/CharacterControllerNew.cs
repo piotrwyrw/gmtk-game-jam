@@ -24,10 +24,12 @@ public class CharacterControllerNew : MonoBehaviour {
     [SerializeField] private bool cameraFollowPlayer = true;
     [SerializeField] private bool cameraFollowPlayerX = true;
     [SerializeField] private bool cameraFollowPlayerY = true;
+    [SerializeField] private bool gravityChangeDisabled = false;
 
-    public GameObject gameOverMenu;
-    public GameObject gameCompleteMenu;
-    public GameObject gameEscapeMenu;
+    [SerializeField] public GameObject gameOverMenu;
+    [SerializeField] public GameObject gameCompleteMenu;
+    [SerializeField] public GameObject gameEscapeMenu;
+    
 
     private Camera camera;
 
@@ -53,7 +55,7 @@ public class CharacterControllerNew : MonoBehaviour {
 
 
     private void OnChangeGravity(InputAction.CallbackContext callbackContext) {
-        if (gravityChange != GravityChange.None && this.shouldWaitForChangeGravityToBeNone)
+        if ((gravityChange != GravityChange.None && this.shouldWaitForChangeGravityToBeNone) || gravityChangeDisabled)
             return;
 
         if (this.gravity.y < 0) {
@@ -142,7 +144,7 @@ public class CharacterControllerNew : MonoBehaviour {
         {
             if (!gameOverMenu.activeSelf) {
                 gameCompleteMenu.SetActive(true);
-            } 
+            }
             gameEscapeMenu.SetActive(false);
         }
     }
@@ -156,7 +158,11 @@ public class CharacterControllerNew : MonoBehaviour {
     }
 
     public void KillPlayer() {
-        
+        if (!gameCompleteMenu.activeSelf)
+        {
+            gameOverMenu.SetActive(true);
+        }
+        gameEscapeMenu.SetActive(false);
     }
 
 }

@@ -6,12 +6,33 @@
   <component name="ChangeListManager">
     <list default="true" id="040cc4e5-4930-4233-9378-b4c2bd22a860" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.gmtk-game-jam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gmtk-game-jam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level01.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level02.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5ecada05-e4af-4e60-9e93-d77c3eb9a325" />
+        <option name="url" value="https://github.com/piotrwyrw/gmtk-game-jam" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectId" id="2SIjjQcUTNQXEFVen0Wt7XSgj1d" />
@@ -87,6 +108,14 @@
       <updated>1688841128187</updated>
       <workItem from="1688841129798" duration="10026000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed some annoying ignoration thingies&#10;And fixed the gravity">
+      <created>1688907153760</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688907153760</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,7 +129,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="hotfix-buttons" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -108,5 +149,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Fixed some annoying ignoration thingies&#10;And fixed the gravity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some annoying ignoration thingies&#10;And fixed the gravity" />
   </component>
 </project>
