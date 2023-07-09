@@ -22,7 +22,8 @@ namespace Extensions.Buttons {
         public Action<string> OnButtonClicked;
 
         private void Awake() {
-            Registry.Add(guid, this);
+            Registry.TryAdd(guid, this);
+            
             this._collider2D = this.AddComponent<BoxCollider2D>();
             this._renderer = this.GetComponent<SpriteRenderer>();
             this._renderer.color = notClickedColor;
