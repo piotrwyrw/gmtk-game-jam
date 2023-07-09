@@ -850,6 +850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundGravityIndicator
       objectReference: {fileID: 0}
+    - target: {fileID: 8779059624237923359, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 818667721}
     - target: {fileID: 8779059624237923361, guid: 9726285a65990284d9ed4848ffcec947, type: 3}
       propertyPath: m_RootOrder
       value: 3
