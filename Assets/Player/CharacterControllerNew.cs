@@ -14,7 +14,7 @@ public class CharacterControllerNew : MonoBehaviour {
     private Rigidbody2D _rigidbody;
     private PlayerGravityChangeInputCooldown _inputCooldown;
 
-    [SerializeField] private Vector2 gravity = new Vector2(0, -9.81f);
+    [SerializeField] public Vector2 gravity = new Vector2(0, -9.81f);
     [SerializeField] private GravityChange gravityChange = GravityChange.None;
     [SerializeField] private float gravityDerivativeModificationDelta = 1;
     [SerializeField] private bool shouldWaitForChangeGravityToBeNone = true;

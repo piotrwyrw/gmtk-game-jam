@@ -46,11 +46,6 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("Level07");
     }
 
-    public void serIndexLevel8()
-    {
-        SceneManager.LoadScene("Level08");
-    }
-
     public void setInfinityMode() {
         SceneManager.LoadScene("Infinity");
     }
