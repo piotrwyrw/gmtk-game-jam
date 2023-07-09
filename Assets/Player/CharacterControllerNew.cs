@@ -119,8 +119,8 @@ public class CharacterControllerNew : MonoBehaviour
     }
 
     public void KillPlayer()
-    {  
-
+    {
+        Debug.Log("Kill Player");
     }
 
     private void Update()
