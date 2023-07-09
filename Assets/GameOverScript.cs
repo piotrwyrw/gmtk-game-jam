@@ -27,4 +27,8 @@ public class GameOverScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
+    public void QuitLevel() {
+        SceneManager.LoadScene(0);
+    }
     }
