@@ -20,7 +20,7 @@ public class GameOverScript : MonoBehaviour
 
     public void NextLevel() {
 
-        if (SceneManager.GetActiveScene().buildIndex == 5) {
+        if (SceneManager.GetActiveScene().buildIndex == 7) {
             SceneManager.LoadScene(1);
         }
         else{ 
