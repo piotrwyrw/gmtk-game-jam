@@ -7,14 +7,14 @@ public class PlatformGenerator {
     private float orgX;
 
     // ---- Generator Settings ----
-    private const float overlapFlux = 2.0f;
+    private const float overlapFlux = 2.5f;
 
-    private float minVerticalDelta = 0.5f;
-    private float verticalDeltaFlux = 1.5f;
+    private float minVerticalDelta = 1.0f;
+    private float verticalDeltaFlux = 4.0f;
 
-    private float gradualIncrement = 0.5f;
-
-    private float deathRegionSizeX = 1.0f;
+    private float gradualIncrement = 1.0f;
+    
+    private const int _minPlatformCount = 10;
 
     private GameObject _prefab;
     private GameObject _deathBlock;
@@ -100,17 +100,16 @@ public class PlatformGenerator {
         _lastPosition = (_lastPosition == PlatformPosition.UPPER) ? PlatformPosition.LOWER : PlatformPosition.UPPER;
     }
 
-    public void AutomaticPlatformPerformanceOptimization() {
-        float aspect = (float)Screen.width / Screen.height;
-        float worldHeight = Camera.main.orthographicSize * 2;
-        float worldWidth = worldHeight * aspect;
-
+    public void AutomaticPlatformPerformanceOptimizationAndGenerationTick() {
         foreach (KeyValuePair<GameObject, DynamicObject> kv in _platforms) {
             GameObject obj = kv.Key;
-            if (obj.transform.position.x + obj.transform.localScale.x < Camera.main.transform.position.x + orgX) { ;
+            if (obj.transform.position.x + obj.transform.localScale.x / 2.0f < Camera.main?.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f)).x) { ;
                 GameObject.Destroy(obj);
                 _platforms.Remove(kv);
             }
         }
+        if (_platforms.Count < _minPlatformCount)
+            for (int i = 0; i < _minPlatformCount - _platforms.Count; i ++)
+                GenerateNext();
     }
 }
