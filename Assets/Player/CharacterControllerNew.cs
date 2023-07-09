@@ -25,9 +25,9 @@ public class CharacterControllerNew : MonoBehaviour {
     [SerializeField] private bool cameraFollowPlayerX = true;
     [SerializeField] private bool cameraFollowPlayerY = true;
 
-    public GameObject gameOverMenu;
-    public GameObject gameCompleteMenu;
-    public GameObject gameEscapeMenu;
+    [SerializeField] public GameObject gameOverMenu;
+    [SerializeField] public GameObject gameCompleteMenu;
+    [SerializeField] public GameObject gameEscapeMenu;
 
     private Camera camera;
 
@@ -128,19 +128,11 @@ public class CharacterControllerNew : MonoBehaviour {
     
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6)
-        {
-            if (!gameCompleteMenu.activeSelf) {
-                gameOverMenu.SetActive(true);
-            }
-            gameEscapeMenu.SetActive(false);
-        }
-
         if (collision.gameObject.layer == 7)
         {
             if (!gameOverMenu.activeSelf) {
                 gameCompleteMenu.SetActive(true);
-            } 
+            }
             gameEscapeMenu.SetActive(false);
         }
     }
@@ -154,7 +146,11 @@ public class CharacterControllerNew : MonoBehaviour {
     }
 
     public void KillPlayer() {
-        
+        if (!gameCompleteMenu.activeSelf)
+        {
+            gameOverMenu.SetActive(true);
+        }
+        gameEscapeMenu.SetActive(false);
     }
 
 }
