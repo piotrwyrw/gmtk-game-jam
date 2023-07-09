@@ -7,12 +7,14 @@ public class IsTouchingPlayer : MonoBehaviour
     [SerializeField] GameObject player;
     private Collider2D playerCollider;
     private Collider2D deathblockCollider;
+    private CharacterControllerNew _characterControllerNew;
 
     // Start is called before the first frame update
     void Start()
     {
         playerCollider = player.GetComponent<Collider2D>();
         deathblockCollider = GetComponent<Collider2D>();
+        _characterControllerNew = player.GetComponent<CharacterControllerNew>();
     }
 
     // Update is called once per frame
@@ -20,8 +22,7 @@ public class IsTouchingPlayer : MonoBehaviour
     {
         if (deathblockCollider.IsTouching(playerCollider))
         {
-            Debug.Log("player just die already");
-            player.GetComponent<CharacterControllerNew>().KillPlayer();
+            _characterControllerNew.KillPlayer();
         }
     }
 }

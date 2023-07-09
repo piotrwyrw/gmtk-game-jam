@@ -20,6 +20,12 @@ public class CharacterControllerNew : MonoBehaviour
     [SerializeField] private float gravityDerivativeModificationDelta = 1;
     [SerializeField] private bool shouldWaitForChangeGravityToBeNone = true;
     [SerializeField] private float gravitationChangeDelta = 1;
+    [SerializeField] private float fixedCameraPositionY = 0;
+    [SerializeField] private float fixedCameraPositionX = 0;
+    [SerializeField] private bool cameraFollowPlayer = true;
+    [SerializeField] private bool cameraFollowPlayerX = true;
+    [SerializeField] private bool cameraFollowPlayerY = true;
+    
     
     private Camera camera;
 
@@ -69,9 +75,11 @@ public class CharacterControllerNew : MonoBehaviour
         Vector3 position = camera.transform.position;
 
         var position1 = transform.position;
-        position = new Vector3(position1.x, position1.y, position.z);
+        
+        position = new Vector3(cameraFollowPlayerX ? position1.x : fixedCameraPositionX, cameraFollowPlayerY ? position1.y : fixedCameraPositionY, position.z);
 
-        camera.transform.position = position;
+        if(cameraFollowPlayer)
+            camera.transform.position = position;
     }
 
 
@@ -111,7 +119,7 @@ public class CharacterControllerNew : MonoBehaviour
     }
 
     public void KillPlayer()
-    {
+    {  
 
     }
 
