@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - TextWhichLevel
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -12,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - HitboxesDamage
-  - HitboxesFinished
+  - 
+  - Level Complete
   - 
   - Solid
   - Draggable
-  - 
-  - 
+  - Player
+  - Death
   - 
   - 
   - 
@@ -44,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 349683129
+    locked: 0
+  - name: Middle
+    uniqueID: 186217713
     locked: 0
   - name: Foreground
     uniqueID: 4138743519
