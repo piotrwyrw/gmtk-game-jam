@@ -119,7 +119,8 @@ public class PlatformGenerator {
         float minY = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f)).y;
         _background.transform.localScale = new Vector3(maxX - minX + 0.5f, maxY - minY + 0.5f, 0.0f);
 
-        foreach (KeyValuePair<GameObject, DynamicObject> kv in _platforms) {
+        for (var index = 0; index < _platforms.Count; index++) {
+            var kv = _platforms[index];
             GameObject obj = kv.Key;
             if (obj.transform.position.x + obj.transform.localScale.x / 2.0f <
                 Camera.main?.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, 0.0f)).x) {

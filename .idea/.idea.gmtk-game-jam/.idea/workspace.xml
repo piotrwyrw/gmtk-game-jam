@@ -7,11 +7,6 @@
     <list default="true" id="040cc4e5-4930-4233-9378-b4c2bd22a860" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.gmtk-game-jam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gmtk-game-jam/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Generator/PlatformGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Generator/PlatformGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravityIndicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravityIndicator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/CharacterControllerNew.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Deathblock.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Util.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
