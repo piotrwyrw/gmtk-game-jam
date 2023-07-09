@@ -1,40 +1,53 @@
-﻿using System.Collections.Generic;
-using Extensions;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlatformGenerator {
+    private float orgY;
     private float _lastX;
-    private float _lastY;
-
-    // ---- Initial setup ----
-    private const float clearance = 0.5f;
 
     // ---- Generator Settings ----
-    private const float overlapFlux = -0.5f;
+    private const float overlapFlux = 2.0f;
 
-    private float minVerticalDelta = 0.0f;
-    private float verticalDeltaFlux = 1.0f;
+    private float minVerticalDelta = 0.5f;
+    private float verticalDeltaFlux = 1.5f;
+
+    private float gradualIncrement = 0.5f;
 
     private GameObject prefab;
-    private  GameObject player;
+    private GameObject player;
+    private PhysicsMaterial2D _material2D;
+
+    private enum PlatformPosition {
+        UPPER,
+        LOWER
+    };
+
+    private PlatformPosition _lastPosition = PlatformPosition.UPPER;
 
     public PlatformGenerator(float orgX, float orgY) {
         _lastX = orgX;
-        _lastY = orgY;
+        this.orgY = orgY;
         LoadPrefab();
     }
 
     public PlatformGenerator() {
         LoadPrefab();
         _lastX = player.transform.position.x + prefab.transform.localScale.y - 0.5f;
-        _lastY = player.transform.position.y + prefab.transform.localScale.y - 0.5f;
+        orgY = player.transform.position.y + prefab.transform.localScale.y - 0.5f;
     }
 
     private void LoadPrefab() {
         GameObject obj = Resources.Load("Platform") as GameObject;
         prefab = obj;
         player = GameObject.Find("Player");
+        _material2D = Resources.Load("Frictionless") as PhysicsMaterial2D;
         minVerticalDelta = player.transform.localScale.y;
+        CapsuleCollider2D collider = player.GetComponent<CapsuleCollider2D>();
+        if (collider == null) {
+            Debug.LogWarning("The player object has no BoxCollider2D");
+            return;
+        }
+
+        collider.sharedMaterial = _material2D;
     }
 
     private float RandomVerticalDelta() {
@@ -49,28 +62,27 @@ public class PlatformGenerator {
         GameObject p1 = GameObject.Instantiate(prefab);
         p1.transform.position = new Vector3(x, y, 0.0f);
         DynamicObject dynObj = p1.GetComponent<DynamicObject>();
-        dynObj.AddIfNotPresent<BoxCollider2D>();
         dynObj.frozen = true;
         return p1;
     }
 
-    private KeyValuePair<GameObject, GameObject> OuterPlatforms() {
-        GameObject p1 = Platform(_lastX, _lastY);
-        GameObject p2 = Platform(_lastX + MaxSpacing() + prefab.transform.localScale.x, _lastY);
-        _lastX += p2.transform.position.x + p2.transform.localScale.x;
-        return new KeyValuePair<GameObject, GameObject>(p1, p2);
-    }
-
-    private GameObject MiddlePlatform(KeyValuePair<GameObject, GameObject> outer) {
-        float k1 = outer.Key.transform.position.x;
-        float k2 = outer.Value.transform.position.x + outer.Value.transform.localScale.x;
-        float x = ((k1 + k2) / 2.0f) - (outer.Value.transform.localScale.x / 2.0f);
-        float y = outer.Key.transform.position.y + minVerticalDelta + prefab.transform.localScale.y + Util.Random(0.0f, verticalDeltaFlux);
-        return Platform(x, y);
+    private float NextY() {
+        float y;
+        if (_lastPosition == PlatformPosition.UPPER) {
+            y = orgY;
+            orgY += gradualIncrement;
+        }  else {
+            y = prefab.transform.localScale.y + Util.Random(minVerticalDelta, verticalDeltaFlux + minVerticalDelta);
+            y += gradualIncrement;
+        }
+        return y;
     }
 
     public void GenerateNext() {
-        MiddlePlatform(OuterPlatforms());
+        float x = _lastX - Util.Random(0.0f, overlapFlux);
+        float y = NextY();
+        _lastX = x + prefab.transform.localScale.x;
+        Platform(x, y);
+        _lastPosition = (_lastPosition == PlatformPosition.UPPER) ? PlatformPosition.LOWER : PlatformPosition.UPPER;
     }
-    
 }

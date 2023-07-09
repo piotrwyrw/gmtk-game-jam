@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Linq;
-using Mono.Cecil;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class CharacterControllerNew : MonoBehaviour {
     private InputActionManager _inputActionManager;
