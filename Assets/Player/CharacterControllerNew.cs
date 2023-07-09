@@ -24,10 +24,12 @@ public class CharacterControllerNew : MonoBehaviour {
     [SerializeField] private bool cameraFollowPlayer = true;
     [SerializeField] private bool cameraFollowPlayerX = true;
     [SerializeField] private bool cameraFollowPlayerY = true;
+    [SerializeField] private bool gravityChangeDisabled = false;
 
     [SerializeField] public GameObject gameOverMenu;
     [SerializeField] public GameObject gameCompleteMenu;
     [SerializeField] public GameObject gameEscapeMenu;
+    
 
     private Camera camera;
 
@@ -53,7 +55,7 @@ public class CharacterControllerNew : MonoBehaviour {
 
 
     private void OnChangeGravity(InputAction.CallbackContext callbackContext) {
-        if (gravityChange != GravityChange.None && this.shouldWaitForChangeGravityToBeNone)
+        if ((gravityChange != GravityChange.None && this.shouldWaitForChangeGravityToBeNone) || gravityChangeDisabled)
             return;
 
         if (this.gravity.y < 0) {
