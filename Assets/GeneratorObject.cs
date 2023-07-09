@@ -13,5 +13,6 @@ public class GeneratorObject : MonoBehaviour {
 
     private void Update() {
         _gen.AutomaticPlatformPerformanceOptimizationAndGenerationTick();
+        _gen.CheckPlayerAndKill();
     }
 }

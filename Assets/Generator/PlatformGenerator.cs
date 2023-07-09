@@ -9,9 +9,11 @@ public class PlatformGenerator {
     private const float overlapFlux = 2.0f;
 
     private float minVerticalDelta = 4.0f;
-    private float verticalDeltaFlux = 3.0f;
+    private float verticalDeltaFlux = 5.0f;
     
     private const int _minPlatformCount = 10;
+    private float deathZoneYMax = 100.0f;
+    private float deathZoneYMin = 0.0f;
 
     private int count = 0;
 
@@ -93,9 +95,11 @@ public class PlatformGenerator {
         float y;
         if (_lastPosition == PlatformPosition.UPPER) {
             y = orgY;
+            deathZoneYMin = y - _prefab.transform.localScale.y / 2.0f;
         }
-        else {
+        else { 
             y = _prefab.transform.localScale.y + Util.Random(minVerticalDelta, verticalDeltaFlux + minVerticalDelta);
+            deathZoneYMax = y;
         }
 
         return y;
@@ -134,4 +138,12 @@ public class PlatformGenerator {
             for (int i = 0; i < _minPlatformCount - _platforms.Count; i++)
                 GenerateNext();
     }
+
+    public void CheckPlayerAndKill() {
+        CharacterControllerNew ccn = _player.GetComponent<CharacterControllerNew>();
+        if (_player.transform.position.y < deathZoneYMin || _player.transform.position.y > deathZoneYMax) {
+            ccn.KillPlayer();
+        }
+    }
+    
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IsTouchingPlayer : MonoBehaviour
@@ -12,6 +10,7 @@ public class IsTouchingPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         playerCollider = player.GetComponent<Collider2D>();
         deathblockCollider = GetComponent<Collider2D>();
         _characterControllerNew = player.GetComponent<CharacterControllerNew>();
