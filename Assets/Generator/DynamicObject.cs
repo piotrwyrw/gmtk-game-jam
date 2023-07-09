@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Extensions;
 
 public class DynamicObject : MonoBehaviour {
@@ -15,8 +16,8 @@ public class DynamicObject : MonoBehaviour {
     private bool endXReached;
     private bool endYReached;
     private Rigidbody2D _rigidbody2D;
-    private BoxCollider2D _boxCollider2D; 
-    
+    public BoxCollider2D _boxCollider2D { get; set; }
+
     // Start is called before the first frame update
     void Start() {
         m_Object = gameObject;
@@ -64,4 +65,5 @@ public class DynamicObject : MonoBehaviour {
         else
             endYReached = false;
     }
+    
 }
